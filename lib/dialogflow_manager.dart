@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 
 /// A dialogflow manager.
 class DialogflowManager {
+  ///Posting intents to dialogflow
   Future<Map> postItent({
     Map<String, dynamic> intent,
     AuthGoogle authGoogle,
@@ -25,6 +26,23 @@ class DialogflowManager {
         body: json.encode(intent));
     responce = json.decode(resp.body);
     return responce;
+  }
+
+  ///Fetching intents form dialogflow
+  Future<Map> fetchItents(
+    AuthGoogle authGoogle,
+    String projectName,
+  ) async {
+    var url =
+        'https://dialogflow.googleapis.com/v2/projects/$projectName/agent/intents';
+    var resp = await http.get(
+      url,
+      headers: {
+        HttpHeaders.authorizationHeader: "Bearer ${authGoogle.getToken}"
+      },
+    );
+    var intents = json.decode(resp.body);
+    return intents;
   }
 }
 

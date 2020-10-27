@@ -1,7 +1,6 @@
 name: dialogflow_manager
-description: This is a library for managing dialogflow project.
-version: 0.0.1
-author: Andrey Lapitski <lapitski.dev@gmail.com>
+description: This is a Flutter library for managing dialogflow project.
+version: 0.0.1+1
 homepage: https://github.com/lapitski/dialogflow_manager
 
 environment:
