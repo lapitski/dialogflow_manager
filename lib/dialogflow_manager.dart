@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 class DialogflowManager {
   ///Posting intents to dialogflow
   Future<Map> postItent({
-    Map<String, dynamic> intent,
+    Map intent,
     AuthGoogle authGoogle,
     String projectName,
   }) async {
