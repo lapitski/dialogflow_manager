@@ -44,6 +44,21 @@ class DialogflowManager {
     var intents = json.decode(resp.body);
     return intents;
   }
+
+  ///Deleting intent
+  Future<Map> deleteItent(
+      AuthGoogle authGoogle, String projectName, String intentId) async {
+    var url =
+        'https://dialogflow.googleapis.com/v2/projects/$projectName/agent/intents/$intentId';
+    var resp = await http.delete(
+      url,
+      headers: {
+        HttpHeaders.authorizationHeader: "Bearer ${authGoogle.getToken}"
+      },
+    );
+    var responce = json.decode(resp.body);
+    return responce;
+  }
 }
 
 /// Google authentication. Need to provide json file.
